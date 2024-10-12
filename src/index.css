@@ -17,6 +17,8 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color);
   justify-content: center;
   align-items: center;
   background-image: 
@@ -51,6 +53,7 @@ main{
 }
 .title{
   width: fit-content;
+
   color: var(--text-color);
   -webkit-text-stroke-width:1px ;
   -webkit-text-stroke-color: var(--input-color);
