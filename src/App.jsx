@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header/Header';
 
+import SectionTimerInput from './components/SectionTimerInput/SectionTimerInput';
+
 
 
 function App() {
@@ -14,8 +16,10 @@ function App() {
       
       <main>
       <Header title="Pomodoro"/>
-      
         <span className='help-icon'></span>
+        
+      <SectionTimerInput ></SectionTimerInput>
+
       </main>
     </>
   )
