@@ -5,6 +5,7 @@ import './App.css'
 import Header from './components/Header/Header';
 
 import SectionTimerInput from './components/SectionTimerInput/SectionTimerInput';
+import TimmerDisplay from './components/TimmerDisplay/TimmerDisplay';
 
 
 
@@ -17,8 +18,8 @@ function App() {
       <main>
       <Header title="Pomodoro"/>
         <span className='help-icon'></span>
-        
       <SectionTimerInput ></SectionTimerInput>
+      <TimmerDisplay/>
 
       </main>
     </>
