@@ -5,7 +5,9 @@
 }
 :root{
   --main-color:#FACBCB;
-  --text-color : #E21D1D;
+  --text-color : #cb0505;
+  --border-title:#d83535;
+  --title:#F05252;
   --clean-color:#FFFFFF;
   --input-color:#FDEDED;
   --transparent-section:#f75151b2;
@@ -32,6 +34,7 @@ body {
 main{
   min-width: 340px;
   width: 80vw;
+  min-width: fit-content;
   height: 86vh;
   min-height: fit-content;
   margin-top: 60px;
@@ -56,9 +59,12 @@ main{
 }
 .title{
   width: fit-content;
-  color: var(--text-color);
-  -webkit-text-stroke-width:1px ;
-  -webkit-text-stroke-color: var(--input-color);
+  font-family: "Leckerli One", serif;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  color: var(--title);
+  -webkit-text-stroke-width:.5px ;
+  -webkit-text-stroke-color: var(--border-title);
 }
 .title-icon{
   width: 120px;
@@ -91,7 +97,6 @@ main{
   gap: 50px;
   grid-template-columns: 1fr 1fr;
   justify-items: center;
- 
   flex-direction: row;
 }
 
@@ -161,7 +166,6 @@ main{
   width: 100%;
   height: fit-content;
   display: flex;
-  justify-self: center;
   background-color: var(--timer-color);
   color: var(--clean-color);
   border-radius: 20px;
@@ -269,12 +273,20 @@ main{
 
 @media(min-width: 820px){
   main{
-    grid-template-rows: 1fr 2fr 1fr;
+    
+    grid-template-rows: 180px 2fr 1fr;
     grid-template-columns: 1fr 1fr;
   }
   .title-container{
     height: 100px;
-    background-color: red;
+    margin-top: 30px;
+  }
+  .title{
+    width: 100%;
+    font-size: 4rem;
+  }
+  .title-icon{
+    bottom:10px;
   }
 
   .help-icon{
@@ -283,25 +295,26 @@ main{
   }
 
 
-
-
-
 /* _____________SectionTimerInput___________ */
   
 .section_timerInput{
   width: 90%;
+  max-width: 540px;
   height: fit-content;
+  margin: 20px auto;
   grid-row: 2/2;
   justify-self: baseline;
   >p{
     text-align: left;
-    margin: 2vw;
+    margin-bottom: 20px;
+    
   }
 }
 
 .timerInput_section{
     width: 90%;
-    max-width: 400px;
+    max-width: 500px;
+    height: 280px;
     padding: 10px;
     gap: 0;
     margin: auto;
@@ -333,6 +346,7 @@ justify-content: space-evenly
 .timmerDisplay__container{
   
   max-width: 550px;
+  min-width: fit-content;
   align-self: center;
 
 
