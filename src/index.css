@@ -33,8 +33,10 @@ main{
   min-width: 340px;
   width: 80vw;
   height: 86vh;
+  min-height: fit-content;
   margin-top: 60px;
   display: grid;
+  justify-items: center;
   grid-template-rows: 70px 1fr 2fr 1fr;
   grid-template-columns: 1fr;
   border-radius: 20px;
@@ -86,10 +88,10 @@ main{
   max-width: 350px;
   margin: auto;
   display: grid;
+  gap: 50px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
   justify-items: center;
-  column-gap: 20px;
+ 
   flex-direction: row;
 }
 
@@ -102,6 +104,11 @@ main{
 }
 
 /* _________________TimerInput_________________ */
+
+.section_timerInput{
+  width: 80%;
+ 
+}
 .timerInput__container{
   width: fit-content;
   height: fit-content;
@@ -151,7 +158,7 @@ main{
 }
 /* _____________TimmerDisplay________________ */
 .timmerDisplay__container{
-  width: 220px;
+  width: 100%;
   height: fit-content;
   display: flex;
   justify-self: center;
@@ -189,14 +196,14 @@ main{
 }
 .progress-container {
 
-  width: 60%;
+  width: 80%;
   max-width: 500px;
   margin: 0 auto;
 }
 
 
 .progress-bar {
-  margin-top: 40px;
+  margin-top: 20px;
   position: relative;
   flex-grow: 1;
   height: 6px;
@@ -214,6 +221,50 @@ main{
   transition: width 0.2s ease;
 }
 
+/* ________________timercontrols____________- */
+.timmerControl_button{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--clean-color);
+  box-shadow: 0px 5px 6px 1px rgba(38, 38, 38, 0.435);
+}
+
+.timerControl_button_icon{
+  width: 50px;
+  height: 50px;
+}
+
+/* ______________TimerControl container________________ */
+
+.timmerControl_container{
+  width: 80%;
+  height: 100px;
+  max-width: 200px;
+  padding: 10px;
+  display: flex;
+  margin: 10 px auto;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.timmerContainer{
+  margin-top: 50px;
+  background-color: red;
+}
+
+
+  /* ____________________________TIMMER SECTION _______________________________ */
+  .timmer_section{
+    width: 80%;
+    max-width: 350px;
+    display: flex;
+    margin: 10px 0 20px 0;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
 
 
 @media(min-width: 820px){
@@ -230,6 +281,11 @@ main{
     top: 12vh;
     
   }
+
+
+
+
+
 /* _____________SectionTimerInput___________ */
   
 .section_timerInput{
@@ -246,9 +302,8 @@ main{
 .timerInput_section{
     width: 90%;
     max-width: 400px;
-    height: 260px;
     padding: 10px;
-    column-gap: 0px;
+    gap: 0;
     margin: auto;
     background-color: var(--transparent-section);
     border-radius: 20px;
@@ -268,10 +323,15 @@ main{
     width: 85px;
     height: 70px;
 }
-
+/* _______Timmer section__________ */
+.timmer_section{
+  grid-area: 2/2/ 4/3;
+  max-width: 500px;
+justify-content: space-evenly
+}
 /* ________TimmerDisplay_______ */
 .timmerDisplay__container{
-  width: 80%;
+  
   max-width: 550px;
   align-self: center;
 
