@@ -37,6 +37,7 @@ main{
   min-width: fit-content;
   height: 86vh;
   min-height: fit-content;
+  position: relative;
   margin-top: 60px;
   display: grid;
   justify-items: center;
@@ -73,6 +74,21 @@ main{
   bottom: 50px;
 }
 
+/* _________HELP  ___________ */
+.help{
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  position: absolute;
+  right: 10px; 
+  bottom: 10px;
+  cursor:pointer
+}
+.help > p{
+  font-size: .8rem;
+  text-decoration: underline;
+  align-self: center;
+}
 .help-icon {
   width: 24px;
   height: 24px;
@@ -80,10 +96,6 @@ main{
   background: url('assets/help.svg');
   background-size: contain;
   background-repeat: no-repeat;
-  position: fixed;
-  right: 12vw; 
-  top: 85vh; 
-  cursor:pointer
 }
 
 
@@ -273,24 +285,25 @@ main{
 
 @media(min-width: 820px){
   main{
-    
+    max-width: 1500px;
     grid-template-rows: 180px 2fr 1fr;
     grid-template-columns: 1fr 1fr;
   }
   .title-container{
     height: 100px;
     margin-top: 30px;
+    justify-content: center;
   }
   .title{
-    width: 100%;
     font-size: 4rem;
   }
   .title-icon{
     bottom:10px;
   }
 
-  .help-icon{
-    top: 12vh;
+  .help{
+    top: 50px;
+    right: 5%;
     
   }
 
