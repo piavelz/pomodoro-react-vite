@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header/Header';
 
 import SectionTimerInput from './components/SectionTimerInput/SectionTimerInput';
 import Timmer from './components/Timmer/Timmer';
+import Help from './components/Help/Help';
 
 
 
@@ -16,10 +15,9 @@ function App() {
 
   return (
     <>
-      
       <main>
       <Header title="Pomodoro"/>
-        <span className='help-icon'></span>
+    <Help/>
       <SectionTimerInput ></SectionTimerInput>
 
       <Timmer/>
