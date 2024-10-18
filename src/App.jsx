@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import SectionTimerInput from './components/SectionTimerInput/SectionTimerInput';
 import Timmer from './components/Timmer/Timmer';
 import Help from './components/Help/Help';
+import Notes from './components/Notes/Notes';
 
 
 
@@ -17,10 +18,12 @@ function App() {
     <>
       <main>
       <Header title="Pomodoro"/>
-    <Help/>
+      <Help/>
       <SectionTimerInput ></SectionTimerInput>
-
+      <Notes/>
       <Timmer/>
+
+
 
 
 
