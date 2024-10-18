@@ -19,6 +19,7 @@
 body {
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
   display: flex;
   font-family: "Roboto", sans-serif;
   color: var(--text-color);
@@ -31,14 +32,35 @@ body {
   background-position: inherit;
 }
 
+/* Personalización del scroll */
+::-webkit-scrollbar {
+  width: 14px; 
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--transparent-section); 
+  border-radius: 10px;
+  border: 2px solid #ccc; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:var(--text-color) 
+}
+
+
 main{
   min-width: 340px;
   width: 80vw;
   min-width: fit-content;
+  padding: 10px;
   height: 86vh;
   min-height: fit-content;
   position: relative;
-  margin-top: 60px;
+  margin :auto;
   display: grid;
   justify-items: center;
   grid-template-rows: 70px 1fr 2fr 1fr;
