@@ -6,6 +6,7 @@ import '../../App.css';
 const TimmerContainer = props => {
   return (
     <section className="timmerControl_container">
+      
       <TimmerControl controlIcon="/playPause.svg" />
       <TimmerControl controlIcon="/restart.svg" />
     </section>

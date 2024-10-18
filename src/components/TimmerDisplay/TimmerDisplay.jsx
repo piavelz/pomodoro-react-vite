@@ -9,9 +9,11 @@ const TimmerDisplay = props => {
         setNotificationOn(!notificationOn); // Alterna entre true y false
         };
 
+
+
     return (
     <>
-  
+  <p className='notification_txt'>Notificaciones: <span Id='sound' >{notificationOn ? 'activadas' : 'desactivadas'}</span></p>
     <article className='timmerDisplay__container'>
         <section className='timmerDisplay_container_img'>
             <img className='timmerDisplay_img'src="https://res.cloudinary.com/dnvpep1sn/image/upload/v1728880492/41cbc3d4994cb661155ed30ae1d4add6_n7a8t4.jpg" alt="" />
