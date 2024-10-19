@@ -12,16 +12,29 @@ import Notes from './components/Notes/Notes';
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [pomodoro, setPomodoro] = useState(25);
+  const [breakTime , setBreakTime]=useState(5);
+  const [selectedCycle, setSelectedCycle]= useState(4);
+
 
   return (
     <>
       <main>
       <Header title="Pomodoro"/>
       <Help/>
-      <SectionTimerInput ></SectionTimerInput>
+      <SectionTimerInput 
+      cycles ={selectedCycle}
+      setCycles ={setSelectedCycle}
+      pomodoroTime = {pomodoro}
+      setPomodoroTime = {setPomodoro}
+      breakTime ={breakTime}
+      setBreakTime ={setBreakTime}
+      />
       <Notes/>
-      <Timmer/>
+      <Timmer
+      pomodoro ={pomodoro}
+      breakTime={breakTime}
+      />
 
 
 
