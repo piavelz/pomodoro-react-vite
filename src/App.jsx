@@ -1,13 +1,10 @@
 import { useState } from 'react'
 import './App.css'
 import Header from './components/Header/Header';
-
 import SectionTimerInput from './components/SectionTimerInput/SectionTimerInput';
 import Timmer from './components/Timmer/Timmer';
 import Help from './components/Help/Help';
 import Notes from './components/Notes/Notes';
-
-
 
 
 
@@ -32,7 +29,8 @@ function App() {
       />
       <Notes/>
       <Timmer
-      pomodoro ={pomodoro}
+      cycles ={selectedCycle}
+      pomodoroTime ={pomodoro}
       breakTime={breakTime}
       />
 

@@ -1,17 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import TimmerControl from '../TimmerControl/TimmerControl'
 
 
-const TimmerControlContainer = props => {
+const TimmerControlContainer =  ({ onStartStop, onReset }) => {
   return (
     <div className='timmerControl_container'>
-    <TimmerControl controlIcon='/playPause.svg'/>
-    <TimmerControl controlIcon='/restart.svg'/>
+    <TimmerControl controlIcon='/playPause.svg' onClick={onStartStop}/>
+    <TimmerControl controlIcon='/restart.svg' onClick={onReset}/>
     </div>
   )
 }
 
-TimmerControlContainer.propTypes = {}
 
 export default TimmerControlContainer
