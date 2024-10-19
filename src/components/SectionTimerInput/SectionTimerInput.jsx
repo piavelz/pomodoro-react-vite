@@ -29,8 +29,8 @@ const SectionTimerInput = ({cycles,setCycles, pomodoroTime, setPomodoroTime, bre
         </select></p>} 
     <section className='timerInput_section'>
     {desktopScreen && <p>Define tu sesión de pomodoro y break</p>}
-        <TimerInput name='Pomodoro' defaultTime={pomodoroTime} setTime={setPomodoroTime} restartTime='25' minTime='20' maxTime='50'/>
-        <TimerInput name='Break' defaultTime={breakTime} setTime={setBreakTime} restartTime='5' minTime='5' maxTime='30' />  
+        <TimerInput name='Pomodoro' defaultTime={pomodoroTime} setTime={setPomodoroTime} restartTime='25' minTime='1' maxTime='50'/>
+        <TimerInput name='Break' defaultTime={breakTime} setTime={setBreakTime} restartTime='5' minTime='1' maxTime='30' />  
     </section>
     </section>
     )

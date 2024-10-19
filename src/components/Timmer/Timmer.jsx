@@ -9,7 +9,13 @@ const Timmer = ({cycles, pomodoroTime, breakTime}) => {
   const [isPomodoro, setIsPomodoro] = useState(true); // To alternate between Pomodoro and rest
   const [currentCycle, setCurrentCycle] = useState(0);
 
-  useEffect(() => {
+  useEffect(()=>{
+    if(!isActive){
+      setTimeRemaining(isPomodoro ? pomodoroTime * 60 : breakTime * 60);
+    }
+  })  
+
+useEffect(() => {
     let timer;
     if (isActive && timeRemaining > 0) {
       timer = setInterval(() => {

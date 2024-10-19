@@ -12,7 +12,10 @@ function App() {
   const [pomodoro, setPomodoro] = useState(25);
   const [breakTime , setBreakTime]=useState(5);
   const [selectedCycle, setSelectedCycle]= useState(4);
+console.log(pomodoro)
+console.log(breakTime
 
+)
 
   return (
     <>
