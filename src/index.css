@@ -17,7 +17,7 @@
 }
 
 body {
-  width: 100vw;
+  width: auto;
   height: 100vh;
   overflow-x: hidden;
   display: flex;
@@ -120,6 +120,53 @@ main{
   background-repeat: no-repeat;
 }
 
+.popup{
+  width: fit-content;
+  min-width: 340px;
+  height: fit-content;
+  max-height: 90vh;
+  display: hidden;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 3px solid var(--transparent-section);
+  border-radius: 8px;
+  background-color: var(--main-color);
+  z-index: 10000;
+  overflow: auto;
+  box-shadow: -4px 30px 57px -1px rgba(26,26,26,1);
+}
+.popup> img{
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.popup-back{
+  width: 100vw;
+  min-width: 370px;
+  height: 100vh;
+  display: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 30%;
+  z-index: 9999;
+}
+.close-btn {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  color: var(--title);
+  
+}
 
 /* _____________SectionTimerInput_____________ */
 
@@ -362,7 +409,7 @@ main{
   .title-icon{
     bottom:10px;
   }
-
+/*___________HELP___________________*/
   .help{
     top: 50px;
     right: 5%;
