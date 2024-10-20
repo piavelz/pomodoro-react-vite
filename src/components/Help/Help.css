@@ -1,0 +1,82 @@
+.help {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+}
+.help > p {
+  font-size: 0.8rem;
+  text-decoration: underline;
+  align-self: center;
+}
+
+.help__icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background: url("../../assets/help.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.popup {
+  width: 90%;
+  max-width: 500px;
+  height: auto;
+  max-height: 80vh;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 8px;
+  border: 3px solid var(--transparent-section);
+  background-color: var(--main-color);
+  box-shadow: -4px 30px 57px -1px rgba(26, 26, 26, 1);
+  overflow: auto;
+  z-index: 10000;
+}
+
+.popup > img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.popup__back {
+  width: 100vw;
+  min-width: 370px;
+  height: 100vh;
+  display: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  opacity: 40%;
+  z-index: 9999;
+}
+
+.popup__close {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+  color: var(--title);
+}
+.help > p:hover,
+.popup__close:hover {
+  color: var(--timer-color);
+}
+
+@media (min-width: 820px) {
+  .help {
+    top: 50px;
+    right: 5%;
+  }
+}

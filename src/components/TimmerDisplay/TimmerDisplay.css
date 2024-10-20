@@ -1,0 +1,92 @@
+.notification-txt {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--transparent-section);
+}
+.timmer-display {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  background-color: var(--timer-color);
+  color: var(--clean-color);
+  border-radius: 20px;
+}
+.timmer-display__section {
+  height: 170px;
+}
+.section__img {
+  width: 120px;
+  height: inherit;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.timmer-display__icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  align-self: flex-start;
+  margin: 10px auto;
+}
+
+.notification--on {
+  background: url("../../assets/notification.svg") no-repeat center / contain;
+}
+.notification--off {
+  background: url("../../assets/notification_off.svg") no-repeat center /
+    contain;
+}
+.timmer-display__time {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  place-items: center;
+  p {
+    align-self: center;
+    font-size: 4rem;
+    font-family: "Micro 5", serif;
+  }
+}
+.timmer-display__progress-container {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.progress-container__progress-bar {
+  margin-top: 20px;
+  position: relative;
+  flex-grow: 1;
+  height: 6px;
+  background-color: var(--transparent-section);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar__progress {
+  height: 100%;
+  width: 30%; /*(Adjust this percentage dynamically) */
+  background-color: var(--timer-color);
+  border-radius: 3px 0 0 3px;
+  transition: width 0.2s ease;
+}
+
+@media (min-width: 820px) {
+  .timmer-display {
+    max-width: 550px;
+    min-width: fit-content;
+    align-self: center;
+  }
+  .timmer-display__time > p {
+    font-size: 6rem;
+  }
+  .timmer-display__section {
+    height: 260px;
+  }
+  .section__img {
+    width: 200px;
+  }
+}
