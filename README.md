@@ -36,23 +36,32 @@ Here are the key technologies and tools used to build this project:
 
 1. Responsive Design: Mobile and Desktop Adaptability.
    Our Pomodoro Timer is fully responsive, adapting seamlessly to both mobile and desktop screens. Whether you're working on a large screen or a smartphone, the interface adjusts to provide an optimal user experience.
-  ![responsive2](https://github.com/user-attachments/assets/93dc4284-4c13-405e-adc7-c1a83f680b2e)
+   <br/><br/><br/>
+<p align=center >
+<img src="https://github.com/user-attachments/assets/93dc4284-4c13-405e-adc7-c1a83f680b2e" alt="responsive2" width="500"/>
+</p>
 
+<br/><br/><br/>
    
-
 2. Adjusting the Timer Values
    Users can easily customize the length of the focus and break periods by increasing or decreasing the input values. This feature gives full control over the Pomodoro cycle, allowing users to adjust the time to their preference.
-
-   ![input2](https://github.com/user-attachments/assets/6f7a2de1-e24a-480a-81e4-cc57dfe6b26d)
+   <br/><br/><br/>
+<p align=center >
+ <img src="https://github.com/user-attachments/assets/6f7a2de1-e24a-480a-81e4-cc57dfe6b26d" alt="values" width="500"/>
+</p>
+<br/><br/><br/>
 
 
 3. Timer in Action.
    Watch the Pomodoro Timer in action! It starts counting down, and you can pause or reset it at any time. The interface clearly displays the remaining time, and it provides the option to restart the cycle as needed.
-   ![timmer](https://github.com/user-attachments/assets/2a3834fe-8e6c-4e73-bdc7-6c240d4d039b)
+<br/><br/><br/>
+<p align=center >
+ <img src="https://github.com/user-attachments/assets/2a3834fe-8e6c-4e73-bdc7-6c240d4d039b" alt="timer" width="500"/>
+</p>
+<br/><br/><br/>
 
 
-
-## Let's get started  🚀
+# Let's get started  🚀
 
 ## Prerequisites 📋
 
@@ -100,7 +109,7 @@ npm run dev
 2. Start the timer, and it will countdown through each work and break session.
 3. Once the session ends, you can reset the timer to begin again.
 
-
+<br/> <br/>
 ### Project Approach 🔩
 
 React: Chosen for its efficient component-based structure, allowing us to build a dynamic, interactive timer.
