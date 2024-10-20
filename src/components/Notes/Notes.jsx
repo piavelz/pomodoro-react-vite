@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import "./Notes.css";
 
-const Notes = props => {
+const Notes = () => {
   return (
     <>
-        <textarea className='notes_textarea' name="notes" id="notes" placeholder='Notas...'>
-      
-        </textarea>
+      <textarea
+        className="notes_textarea"
+        name="notes"
+        id="notes"
+        placeholder="Notas..."
+      ></textarea>
     </>
-  )
-}
+  );
+};
 
-Notes.propTypes = {}
-
-export default Notes
+export default Notes;

@@ -1,0 +1,9 @@
+.container-controls {
+  width: 80%;
+  height: 100px;
+  max-width: 200px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}

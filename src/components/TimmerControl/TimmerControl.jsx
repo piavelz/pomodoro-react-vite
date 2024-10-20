@@ -1,16 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import "./TimmerControl.css";
 
-
-const TimmerControl = ({controlIcon, onClick}) => {
+const TimmerControl = ({ controlIcon, onClick }) => {
   return (
     <>
-    <button className='timmerControl_button' onClick={onClick}>
-        <img className='timerControl_button_icon' src={controlIcon} alt="icon" />
-    </button>
+      <button className="button-control" onClick={onClick}>
+        <img className="button-control__icon" src={controlIcon} alt="icon" />
+      </button>
     </>
-  )
-}
+  );
+};
 
-
-export default TimmerControl
+export default TimmerControl;

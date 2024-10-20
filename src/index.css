@@ -1,19 +1,17 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-:root{
-  --main-color:#FACBCB;
-  --text-color : #cb0505;
-  --border-title:#d83535;
-  --title:#F05252;
-  --clean-color:#FFFFFF;
-  --input-color:#FDEDED;
-  --transparent-section:#f75151b2;
-  --timer-color: #B60214;
-
-
+:root {
+  --main-color: #facbcb;
+  --text-color: #cb0505;
+  --border-title: #d83535;
+  --title: #f05252;
+  --clean-color: #ffffff;
+  --input-color: #fdeded;
+  --transparent-section: #f75151b2;
+  --timer-color: #b60214;
 }
 
 body {
@@ -25,34 +23,33 @@ body {
   color: var(--text-color);
   justify-content: center;
   align-items: center;
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), /* Overlay negro con 30% de opacidad */
-    url('https://res.cloudinary.com/dnvpep1sn/image/upload/v1728678886/xbobzd5oofmqytfzs7mo.png'); /* Imagen de fondo */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    /* Overlay negro con 30% de opacidad */
+      url("https://res.cloudinary.com/dnvpep1sn/image/upload/v1728678886/xbobzd5oofmqytfzs7mo.png"); /* Imagen de fondo */
   background-size: cover;
   background-position: inherit;
 }
 
 /* Personalización del scroll */
 ::-webkit-scrollbar {
-  width: 14px; 
+  width: 14px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--transparent-section); 
+  background-color: var(--transparent-section);
   border-radius: 10px;
-  border: 2px solid #ccc; 
+  border: 2px solid #ccc;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background:var(--text-color) 
+  background: var(--text-color);
 }
 
-
-main{
+main {
   min-width: 340px;
   width: 80vw;
   min-width: fit-content;
@@ -60,434 +57,20 @@ main{
   height: 86vh;
   min-height: fit-content;
   position: relative;
-  margin :auto;
+  margin: auto;
   display: grid;
   justify-items: center;
   grid-template-rows: 70px 1fr 2fr 1fr;
   grid-template-columns: 1fr;
   border-radius: 20px;
   background-color: var(--main-color);
-  -webkit-box-shadow: 0px 11px 21px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 11px 21px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 11px 21px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 11px 21px 0px rgba(0, 0, 0, 0.75);
 }
 
-.title-container{
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0 0 30px;
-
-}
-.title{
-  width: fit-content;
-  font-family: "Leckerli One", serif;
-  font-size: 2.5rem;
-  letter-spacing: 2px;
-  color: var(--title);
-  -webkit-text-stroke-width:.5px ;
-  -webkit-text-stroke-color: var(--border-title);
-}
-.title-icon{
-  width: 120px;
-  height: 100px;
-  position: relative;
-  bottom: 50px;
-}
-
-/* _________HELP  ___________ */
-.help{
-  width: fit-content;
-  height: fit-content;
-  display: flex;
-  position: absolute;
-  right: 10px; 
-  bottom: 10px;
-  cursor:pointer
-}
-.help > p{
-  font-size: .8rem;
-  text-decoration: underline;
-  align-self: center;
-}
-.help-icon {
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  background: url('assets/help.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.popup{
-  width: fit-content;
-  min-width: 340px;
-  height: fit-content;
-  max-height: 90vh;
-  display: hidden;
-  padding: 20px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  border: 3px solid var(--transparent-section);
-  border-radius: 8px;
-  background-color: var(--main-color);
-  z-index: 10000;
-  overflow: auto;
-  box-shadow: -4px 30px 57px -1px rgba(26,26,26,1);
-}
-.popup> img{
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.popup-back{
-  width: 100vw;
-  min-width: 370px;
-  height: 100vh;
-  display: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: black;
-  opacity: 30%;
-  z-index: 9999;
-}
-.close-btn {
-  display: inline-block;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  font-size: 2rem;
-  text-align: center;
-  cursor: pointer;
-  color: var(--title);
-  
-}
-
-/* _____________SectionTimerInput_____________ */
-
-.timerInput_section{
-  width: 80%;
-  max-width: 350px;
-  margin: auto;
-  display: grid;
-  gap: 50px;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
-  flex-direction: row;
-}
-
-.timerInputCycles{
-  background-color: transparent;
-  padding-left: 10px;
-  width: 50px;
-  border: none;
-  border-bottom: 1px solid var(--text-color);
-}
-
-/* _________________TimerInput_________________ */
-
-.section_timerInput{
-  width: 80%;
- 
-}
-.timerInput__container{
-  width: fit-content;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  p{
-    margin-right: auto;
-    font-size: 14px;
-  }
-}
-
-.timerInput_show_time{
-  width: 65px;
-  height: 50px;
-  font-family: "Micro 5", serif;
-  font-size: 1.8rem;
-  align-content: center;
-  border: 1px solid var(--text-color);
-  background-color: var(--input-color);
-  -webkit-box-shadow: 0px 5px 6px 1px rgba(38,38,38,0.2);
-  -moz-box-shadow: 0px 5px 6px 1px rgba(38,38,38,0.2);
-  box-shadow: 0px 5px 6px 1px rgba(38,38,38,0.2);
-}
-.timerInput_button_increment, .timerInput_button_decrement{
-  width:50px;
-  height: 30px;
-  border: none;
-  cursor: pointer;
-}
-
-.timerInput_button_increment{
-  background: url('assets/arrowUp.svg') no-repeat center / contain;
-
-}
-.timerInput_button_decrement{
-  background: url('assets/arrowDown.svg') no-repeat center / contain;
-}
-
-.timerInput_restart{
-  border: none;
-  font-size: .8rem;
-  text-decoration: underline;
-  color: var(--text-color);
-  background-color: transparent;
-  cursor: pointer;
-}
-
-
-/*_____________Notes_______*/
-
-.notes_textarea{
-  display: none;
-  width: 80%;
-  max-width: 500px;
-  height: 80%;
-  min-height: 80px;
-  font-family: "Roboto", sans-serif;
-  padding: 10px;
-  grid-area: 3/1 / 3/2;
-  border-radius: 20px;
-  border: 1px solid var(--text-color);
-  background-color: var(--transparent-section);
-  outline: none;
-
-}
-.notes_textarea:focus{
-  border: 2px solid var(--timer-color); /* Cambia el color del borde al hacer foco */
-  box-shadow: 0 0 5px var(--transparent-section);
-}
-.notes_textarea::placeholder{
-  color: var(--text-color);
-}
-
-/* _____________TimmerDisplay________________ */
-.timmerDisplay__container{
-  width: 100%;
-  height: fit-content;
-  display: flex;
-  background-color: var(--timer-color);
-  color: var(--clean-color);
-  border-radius: 20px;
-}
-.timmerDisplay_container_img{
-  height: 170px;
-}
-.timmerDisplay_img{
-  width: 120px;
-  height: inherit;
-  object-fit: cover;
-  border-radius: 20px;
-}
-.timmerDisplay_icon{
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  align-self: flex-start;
-  margin:10px auto;
-}
-.notification_txt{
-  width: 100%;
-  text-align: right;
-  font-size: .8rem;
-  color: var(--transparent-section);
-}
-.notification_on{
-  background: url('assets/notification.svg')no-repeat center / contain;
-}
-.notification_off{
-  background: url('assets/notification_off.svg')no-repeat center / contain;
-}
-.timmerDisplay_time{
-  width: 100%;
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; 
-  place-items: center;
-  p{
-    align-self: center;
-    font-size: 4rem;
-    font-family: "Micro 5", serif;
-  }
-}
-.progress-container {
-
-  width: 80%;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-
-.progress-bar {
-  margin-top: 20px;
-  position: relative;
-  flex-grow: 1;
-  height: 6px;
-  background-color: var(--transparent-section);
-  border-radius: 3px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.progress {
-  height: 100%;
-  width: 30%; /* Ajusta este porcentaje dinámicamente */
-  background-color: var(--timer-color);
-  border-radius: 3px 0 0 3px;
-  transition: width 0.2s ease;
-}
-
-/* ________________timercontrols____________- */
-.timmerControl_button{
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--clean-color);
-  box-shadow: 0px 5px 6px 1px rgba(38, 38, 38, 0.435);
-}
-
-.timerControl_button_icon{
-  width: 50px;
-  height: 50px;
-}
-
-/* ______________TimerControl container________________ */
-
-.timmerControl_container{
-  width: 80%;
-  height: 100px;
-  max-width: 200px;
-  padding: 10px;
-  display: flex;
-  margin: 10 px auto;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-.timmerContainer{
-  margin-top: 50px;
-  background-color: red;
-}
-
-
-  /* ____________________________TIMMER SECTION _______________________________ */
-  .timmer_section{
-    width: 80%;
-    max-width: 350px;
-    display: flex;
-    margin: 10px 0 20px 0;
-    flex-direction: column;
-    align-items: center;
-    
-  }
-  
-
-
-@media(min-width: 820px){
-  main{
+@media (min-width: 820px) {
+  main {
     max-width: 1500px;
     grid-template-rows: 180px 2fr 1fr;
     grid-template-columns: 1fr 1fr;
   }
-  .title-container{
-    height: 100px;
-    margin-top: 30px;
-    justify-content: center;
-  }
-  .title{
-    font-size: 4rem;
-  }
-  .title-icon{
-    bottom:10px;
-  }
-/*___________HELP___________________*/
-  .help{
-    top: 50px;
-    right: 5%;
-    
-  }
-
-
-/* _____________SectionTimerInput___________ */
-  
-.section_timerInput{
-  width: 90%;
-  max-width: 540px;
-  height: fit-content;
-  margin: 20px auto;
-  grid-row: 2/2;
-  justify-self: baseline;
-  >p{
-    text-align: left;
-    margin-bottom: 20px;
-    
-  }
-}
-
-.timerInput_section{
-    width: 90%;
-    max-width: 500px;
-    height: 280px;
-    padding: 10px;
-    gap: 0;
-    margin: auto;
-    background-color: var(--transparent-section);
-    border-radius: 20px;
-    border: 1px solid var(--text-color);
-    >p{
-      margin: 5px auto 20px auto;
-      grid-column: 1/3;
-      margin-right: auto;
-      font-weight:500;
-      color: var(--timer-color);
-    }
-    
-  }
-
-  /* _____Notas_________ */
-  .notes_textarea{
-    display: inline-block;
-  }
-  
-  /* ________timerInput_______ */
-  .timerInput_show_time{
-    width: 85px;
-    height: 70px;
-}
-/* _______Timmer section__________ */
-.timmer_section{
-  margin-top:50px;
-  max-height: 450px;
-  grid-area: 2/2/ 4/3;
-  max-width: 500px;
-justify-content: space-between;
-}
-/* ________TimmerDisplay_______ */
-.timmerDisplay__container{
-  
-  max-width: 550px;
-  min-width: fit-content;
-  align-self: center;
-
-
-}
-.timmerDisplay_time>p {
-  font-size: 6rem;
-}
-.timmerDisplay_container_img{
-  height:260px ;
-}
-.timmerDisplay_img{
-  width: 200px;
-}
-
 }
