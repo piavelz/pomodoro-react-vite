@@ -17,8 +17,6 @@
 body {
   width: auto;
   height: 100vh;
-  overflow-x: hidden;
-  feature/41
   display: flex;
   justify-content: center;
   align-items: center;
