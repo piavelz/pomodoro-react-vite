@@ -18,11 +18,14 @@ body {
   width: auto;
   height: 100vh;
   overflow-x: hidden;
+  feature/41
   display: flex;
-  font-family: "Roboto", sans-serif;
-  color: var(--text-color);
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-color);
+  background-color: var(--timer-color);
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     /* Overlay negro con 30% de opacidad */
       url("https://res.cloudinary.com/dnvpep1sn/image/upload/v1728678886/xbobzd5oofmqytfzs7mo.png"); /* Imagen de fondo */
@@ -50,7 +53,6 @@ body {
 }
 
 main {
-  min-width: 340px;
   width: 80vw;
   min-width: fit-content;
   padding: 10px;
@@ -58,8 +60,8 @@ main {
   min-height: fit-content;
   position: relative;
   margin: auto;
-  display: grid;
   justify-items: center;
+  display: grid;
   grid-template-rows: 70px 1fr 2fr 1fr;
   grid-template-columns: 1fr;
   border-radius: 20px;
