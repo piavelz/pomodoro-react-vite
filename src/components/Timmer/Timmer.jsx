@@ -9,7 +9,7 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
   const [currentCycle, setCurrentCycle] = useState(0);
 
   useEffect(() => {
-    if (!isActive) {
+    if (!isActive && timeRemaining === 0) {
       setTimeRemaining(isPomodoro ? pomodoroTime * 60 : breakTime * 60);
     }
   });
