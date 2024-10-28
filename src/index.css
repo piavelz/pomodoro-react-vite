@@ -18,6 +18,7 @@ body {
   width: auto;
   height: 100vh;
   overflow-x: hidden;
+  padding-top: env(safe-area-inset-top);
   display: flex;
   font-family: "Roboto", sans-serif;
   color: var(--text-color);
@@ -27,7 +28,7 @@ body {
     /* Overlay negro con 30% de opacidad */
       url("https://res.cloudinary.com/dnvpep1sn/image/upload/v1728678886/xbobzd5oofmqytfzs7mo.png"); /* Imagen de fondo */
   background-size: cover;
-  background-position: inherit;
+  background-position: center;
 }
 
 /* Personalización del scroll */
