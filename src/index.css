@@ -58,8 +58,8 @@ main {
   min-height: fit-content;
   position: relative;
   margin: auto;
-  display: grid;
   justify-items: center;
+  display: grid;
   grid-template-rows: 70px 1fr 2fr 1fr;
   grid-template-columns: 1fr;
   border-radius: 20px;
