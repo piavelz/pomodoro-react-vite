@@ -51,6 +51,8 @@ body {
 }
 
 main {
+  min-width: 340px;
+  width: 80vw;
   min-width: fit-content;
   padding: 10px;
   height: 86vh;
