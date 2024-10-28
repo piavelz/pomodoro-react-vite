@@ -23,7 +23,7 @@ body {
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
   color: var(--text-color);
-  background-color: var(--timer-color);
+  background-color: #6d030e;
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     /* Overlay negro con 30% de opacidad */
       url("https://res.cloudinary.com/dnvpep1sn/image/upload/v1728678886/xbobzd5oofmqytfzs7mo.png"); /* Imagen de fondo */
