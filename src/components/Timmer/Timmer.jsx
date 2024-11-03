@@ -4,12 +4,13 @@ import TimmerControlContainer from "../TimmerControlContainer/TimmerControlConta
 import "./Timmer.css";
 const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
   const [isActive, setIsActive] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(pomodoroTime * 60);
   const [isPomodoro, setIsPomodoro] = useState(true); // To alternate between Pomodoro and rest
   const [currentCycle, setCurrentCycle] = useState(0);
 
   useEffect(() => {
-    if (!isActive && timeRemaining === 0) {
+    if (!isActive && !isPaused && timeRemaining !== pomodoroTime * 60) {
       setTimeRemaining(isPomodoro ? pomodoroTime * 60 : breakTime * 60);
     }
   });
@@ -38,6 +39,7 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
         setTimeRemaining(pomodoroTime * 60);
       }
     }
+
     return () => clearInterval(timer);
   }, [
     isActive,
@@ -50,6 +52,11 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
   ]);
 
   const handleStartStop = () => {
+    if (isActive) {
+      setIsPaused(true);
+    } else {
+      setIsPaused(false);
+    }
     setIsActive(!isActive);
   };
 
