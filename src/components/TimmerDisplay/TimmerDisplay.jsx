@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./TimmerDisplay.css";
+import useSound from "use-sound";
+import live from "../../assets/sound/live.mp3";
+import start from "../../assets/sound/start.mp3";
 
 const TimmerDisplay = ({ timeRemaining, isPomodoro }) => {
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
 
   const [notificationOn, setNotificationOn] = useState(true);
+
+  const [playMoreLife] = useSound(live);
+  const [playStart] = useSound(start);
+
   const handleClick = () => {
     setNotificationOn(!notificationOn);
   };
@@ -14,6 +21,13 @@ const TimmerDisplay = ({ timeRemaining, isPomodoro }) => {
 
   useEffect(() => {
     setTimmerColor(isPomodoro ? "#ffffff" : "#f75151b2");
+    if (notificationOn) {
+      if (timeRemaining === 4 && !isPomodoro) {
+        playStart();
+      } else if (timeRemaining === 1 && isPomodoro) {
+        playMoreLife();
+      }
+    }
   });
 
   return (
