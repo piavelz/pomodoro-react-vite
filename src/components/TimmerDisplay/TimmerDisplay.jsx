@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./TimmerDisplay.css";
 
 const TimmerDisplay = ({ timeRemaining, isPomodoro }) => {
@@ -8,8 +8,13 @@ const TimmerDisplay = ({ timeRemaining, isPomodoro }) => {
   const [notificationOn, setNotificationOn] = useState(true);
   const handleClick = () => {
     setNotificationOn(!notificationOn);
-    console.log("Hola");
   };
+
+  const [timmerColor, setTimmerColor] = useState("#ffffff");
+
+  useEffect(() => {
+    setTimmerColor(isPomodoro ? "#ffffff" : "#f75151b2");
+  });
 
   return (
     <>
@@ -31,10 +36,10 @@ const TimmerDisplay = ({ timeRemaining, isPomodoro }) => {
             ${notificationOn ? "notification--on" : "notification--off"}`}
             onClick={handleClick}
           ></span>
-          <p>{`${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+          <p style={{ color: timmerColor }}>{`${String(minutes).padStart(
             2,
             "0"
-          )}`}</p>
+          )}:${String(seconds).padStart(2, "0")}`}</p>
         </section>
       </article>
       <div className="timmer-display__progress-container">
