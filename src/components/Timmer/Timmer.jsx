@@ -50,12 +50,12 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
         // transition to disappear confetti
         setTimeout(() => {
           setConfettiClass("confetti-exit");
-        }, 2000);
+        }, 5000);
 
         //stop confetti
         setTimeout(() => {
           setGetConfetti(false);
-        }, 10000);
+        }, 9000);
 
         //Restart the cycles
 
