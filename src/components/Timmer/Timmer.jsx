@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import TimmerDisplay from "../TimmerDisplay/TimmerDisplay";
 import TimmerControlContainer from "../TimmerControlContainer/TimmerControlContainer";
 import "./Timmer.css";
-// import useSound from "use-sound";
-// import live from "../../assets/sound/live.mp3";
-// import start from "../../assets/sound/start.mp3";
+import { useWindowSize } from "react-use";
+import Confetti from "react-confetti";
 
 const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(pomodoroTime * 60);
   const [isPomodoro, setIsPomodoro] = useState(true); // To alternate between Pomodoro and rest
-  const [currentCycle, setCurrentCycle] = useState(0);
+  const [currentCycle, setCurrentCycle] = useState(1);
+  const [getConfetti, setGetConfetti] = useState(false);
+  const [confettiClass, setConfettiClass] = useState("confetti-enter");
 
-  // const [playMoreLife] = useSound(live);
-  // const [playStart] = useSound(start);
+  const { width, height } = useWindowSize();
 
   useEffect(() => {
     if (!isActive && !isPaused && timeRemaining !== pomodoroTime * 60) {
@@ -24,30 +24,44 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
 
   useEffect(() => {
     let timer;
+
     if (isActive && timeRemaining > 0) {
       timer = setInterval(() => {
         setTimeRemaining((prevTime) => prevTime - 1);
       }, 1000);
-      // if (timeRemaining === 4 && !isPomodoro) {
-      //   playStart();
-      // } else if (timeRemaining === 1 && isPomodoro) {
-      //   playMoreLife();
-      // }
     } else if (timeRemaining === 0) {
-      if (currentCycle < cycles - 1) {
+      if (currentCycle <= cycles) {
+        console.log("****ciclo numero : ", currentCycle);
+        console.log("****ciclos en total: ", cycles);
         // Switch to next cycle
         if (isPomodoro) {
           setIsPomodoro(false);
           setCurrentCycle(currentCycle + 1);
           setTimeRemaining(breakTime * 60);
+          console.log("ciclo numero =", currentCycle);
         } else {
           setIsPomodoro(true);
           setTimeRemaining(pomodoroTime * 60);
         }
       } else {
+        //get confetti
+        setGetConfetti(true);
+
+        // transition to disappear confetti
+        setTimeout(() => {
+          setConfettiClass("confetti-exit");
+        }, 2000);
+
+        //stop confetti
+        setTimeout(() => {
+          setGetConfetti(false);
+        }, 10000);
+
         //Restart the cycles
+
         setIsActive(false);
         setCurrentCycle(0);
+        setIsPomodoro(true);
         setTimeRemaining(pomodoroTime * 60);
       }
     }
@@ -81,6 +95,15 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
 
   return (
     <section className="timmer-section">
+      {getConfetti && (
+        <Confetti
+          className={confettiClass}
+          width={width}
+          height={height}
+          run={getConfetti}
+        />
+      )}
+
       <TimmerDisplay timeRemaining={timeRemaining} isPomodoro={isPomodoro} />
       <TimmerControlContainer
         onStartStop={handleStartStop}
