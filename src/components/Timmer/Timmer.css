@@ -6,6 +6,15 @@
   flex-direction: column;
   align-items: center;
 }
+.confetti-enter {
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+}
+
+.confetti-exit {
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+}
 
 @media (min-width: 820px) {
   .timmer-section {
