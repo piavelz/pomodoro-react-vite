@@ -30,18 +30,15 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
         setTimeRemaining((prevTime) => prevTime - 1);
       }, 1000);
     } else if (timeRemaining === 0) {
-      if (currentCycle <= cycles) {
-        console.log("****ciclo numero : ", currentCycle);
-        console.log("****ciclos en total: ", cycles);
+      if (currentCycle < cycles) {
         // Switch to next cycle
         if (isPomodoro) {
           setIsPomodoro(false);
-          setCurrentCycle(currentCycle + 1);
           setTimeRemaining(breakTime * 60);
-          console.log("ciclo numero =", currentCycle);
         } else {
           setIsPomodoro(true);
           setTimeRemaining(pomodoroTime * 60);
+          setCurrentCycle(currentCycle + 1);
         }
       } else {
         //get confetti
@@ -58,11 +55,14 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
         }, 9000);
 
         //Restart the cycles
-
         setIsActive(false);
-        setCurrentCycle(0);
+        setCurrentCycle(1);
         setIsPomodoro(true);
         setTimeRemaining(pomodoroTime * 60);
+        setTimeout(() => {
+          setGetConfetti(false);
+          setConfettiClass("confetti-enter");
+        }, 9000);
       }
     }
 
@@ -104,7 +104,11 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
         />
       )}
 
-      <TimmerDisplay timeRemaining={timeRemaining} isPomodoro={isPomodoro} />
+      <TimmerDisplay
+        timeRemaining={timeRemaining}
+        isPomodoro={isPomodoro}
+        currentCycle={currentCycle}
+      />
       <TimmerControlContainer
         onStartStop={handleStartStop}
         onReset={handleReset}

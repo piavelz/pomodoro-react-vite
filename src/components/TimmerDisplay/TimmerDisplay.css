@@ -15,12 +15,23 @@
 }
 .timmer-display__section {
   height: 170px;
+  position: relative;
 }
 .section__img {
   width: 120px;
   height: inherit;
   object-fit: cover;
   border-radius: 20px;
+}
+.section__cycles {
+  min-width: 53px;
+  color: rgba(0, 0, 0, 0.624);
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%);
+  font-family: "Micro 5", serif;
+  font-size: 24px;
 }
 .timmer-display__icon {
   width: 30px;

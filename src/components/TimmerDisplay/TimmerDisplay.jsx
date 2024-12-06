@@ -4,7 +4,7 @@ import useSound from "use-sound";
 import live from "../../assets/sound/live.mp3";
 import start from "../../assets/sound/start.mp3";
 
-const TimmerDisplay = ({ timeRemaining, isPomodoro }) => {
+const TimmerDisplay = ({ timeRemaining, isPomodoro, currentCycle }) => {
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
 
@@ -43,6 +43,7 @@ const TimmerDisplay = ({ timeRemaining, isPomodoro }) => {
             src="https://res.cloudinary.com/dnvpep1sn/image/upload/v1728880492/41cbc3d4994cb661155ed30ae1d4add6_n7a8t4.jpg"
             alt=""
           />
+          <span className="section__cycles"> ciclo: {currentCycle}</span>
         </section>
         <section className="timmer-display__time">
           <span
