@@ -4,10 +4,14 @@ import useSound from "use-sound";
 import live from "../../assets/sound/live.mp3";
 import start from "../../assets/sound/start.mp3";
 
-const TimmerDisplay = ({ timeRemaining, isPomodoro, currentCycle }) => {
+const TimmerDisplay = ({
+  timeRemaining,
+  totalTime,
+  isPomodoro,
+  currentCycle,
+}) => {
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
-
   const [notificationOn, setNotificationOn] = useState(true);
 
   const [playMoreLife] = useSound(live);
@@ -29,6 +33,8 @@ const TimmerDisplay = ({ timeRemaining, isPomodoro, currentCycle }) => {
       }
     }
   });
+  // Calculate bar progress in percentage
+  const progressPercentage = ((1 - timeRemaining / totalTime) * 100).toFixed(2);
 
   return (
     <>
@@ -59,7 +65,10 @@ const TimmerDisplay = ({ timeRemaining, isPomodoro, currentCycle }) => {
       </article>
       <div className="timmer-display__progress-container">
         <div className="progress-container__progress-bar">
-          <div className="progress-bar__progress"></div>
+          <div
+            className="progress-bar__progress"
+            style={{ width: `${progressPercentage}%` }}
+          ></div>
         </div>
       </div>
     </>

@@ -106,6 +106,7 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
 
       <TimmerDisplay
         timeRemaining={timeRemaining}
+        totalTime={isPomodoro ? pomodoroTime * 60 : breakTime * 60}
         isPomodoro={isPomodoro}
         currentCycle={currentCycle}
       />
