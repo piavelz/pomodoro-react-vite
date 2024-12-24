@@ -88,7 +88,7 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
 
   const handleReset = () => {
     setIsActive(false);
-    setCurrentCycle(0);
+    setCurrentCycle(1);
     setIsPomodoro(true);
     setTimeRemaining(pomodoroTime * 60); // Restart on pomodoro schedule
   };
