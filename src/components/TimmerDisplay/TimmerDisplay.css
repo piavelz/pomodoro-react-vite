@@ -9,6 +9,7 @@
   width: 100%;
   height: fit-content;
   display: flex;
+  position: relative;
   background-color: var(--timer-color);
   color: var(--clean-color);
   border-radius: 20px;
@@ -85,6 +86,20 @@
   transition: width 0.2s ease;
 }
 
+.timmer-display__full-screen {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.timmer-display__full-screen-enter {
+  background: url("../../assets/fullscreen.svg") no-repeat center / contain;
+}
+.timmer-display__full-screen-exit {
+  background: url("../../assets/fullscreenExit.svg") no-repeat center / contain;
+}
+
 @media (min-width: 820px) {
   .timmer-display {
     max-width: 550px;
@@ -99,5 +114,16 @@
   }
   .section__img {
     width: 200px;
+  }
+}
+@media (display-mode: fullscreen) {
+  .timmer-display__section {
+    display: none !important;
+  }
+  .timmer-display__time {
+    justify-content: space-around !important;
+    p {
+      font-size: 10rem !important;
+    }
   }
 }
