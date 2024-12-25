@@ -13,6 +13,7 @@ const TimmerDisplay = ({
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
   const [notificationOn, setNotificationOn] = useState(true);
+  const [fullScreen, setFullScreen] = useState(false);
 
   const [playMoreLife] = useSound(live);
   const [playStart] = useSound(start);
@@ -36,13 +37,20 @@ const TimmerDisplay = ({
   // Calculate bar progress in percentage
   const progressPercentage = ((1 - timeRemaining / totalTime) * 100).toFixed(2);
 
+  //use fullScreen
+  const isFullScreen = () => {
+    const timmerDisplay = document.getElementById("timmer-display");
+    fullScreen ? document.exitFullscreen() : timmerDisplay.requestFullscreen();
+    setFullScreen(!fullScreen);
+  };
+
   return (
     <>
       <p className="notification-txt">
         Notificaciones:{" "}
         <span>{notificationOn ? "activadas" : "desactivadas"}</span>
       </p>
-      <article className="timmer-display">
+      <article className="timmer-display" id="timmer-display">
         <section className="timmer-display__section">
           <img
             className="section__img"
@@ -61,6 +69,16 @@ const TimmerDisplay = ({
             2,
             "0"
           )}:${String(seconds).padStart(2, "0")}`}</p>
+          <span
+            className={`timmer-display__full-screen ${
+              fullScreen
+                ? "timmer-display__full-screen-exit"
+                : "timmer-display__full-screen-enter"
+            } `}
+            onClick={isFullScreen}
+          >
+            {" "}
+          </span>
         </section>
       </article>
       <div className="timmer-display__progress-container">
