@@ -108,6 +108,7 @@ const Timmer = ({ cycles, pomodoroTime, breakTime }) => {
         timeRemaining={timeRemaining}
         totalTime={isPomodoro ? pomodoroTime * 60 : breakTime * 60}
         isPomodoro={isPomodoro}
+        isActive={isActive}
         currentCycle={currentCycle}
       />
       <TimmerControlContainer

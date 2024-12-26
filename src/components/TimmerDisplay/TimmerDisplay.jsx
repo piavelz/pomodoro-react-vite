@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import "./TimmerDisplay.css";
 import useSound from "use-sound";
 import live from "../../assets/sound/live.mp3";
@@ -8,12 +8,21 @@ const TimmerDisplay = ({
   timeRemaining,
   totalTime,
   isPomodoro,
+  isActive,
   currentCycle,
 }) => {
-  const minutes = Math.floor(timeRemaining / 60);
-  const seconds = timeRemaining % 60;
+  const formatTime = useMemo(() => {
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+    return (
+      String(minutes).padStart(2, "0") + ":" + String(seconds).padStart(2, "0")
+    );
+  }, [timeRemaining]);
+
   const [notificationOn, setNotificationOn] = useState(true);
   const [fullScreen, setFullScreen] = useState(false);
+  const [timmerColor, setTimmerColor] = useState("#ffffff");
+  const [originalTitle] = useState(document.title);
 
   const [playMoreLife] = useSound(live);
   const [playStart] = useSound(start);
@@ -22,8 +31,9 @@ const TimmerDisplay = ({
     setNotificationOn(!notificationOn);
   };
 
-  const [timmerColor, setTimmerColor] = useState("#ffffff");
+  console.log(formatTime);
 
+  //Changes color depending on pomodoro or break
   useEffect(() => {
     setTimmerColor(isPomodoro ? "#ffffff" : "#f75151b2");
     if (notificationOn) {
@@ -34,6 +44,7 @@ const TimmerDisplay = ({
       }
     }
   });
+
   // Calculate bar progress in percentage
   const progressPercentage = ((1 - timeRemaining / totalTime) * 100).toFixed(2);
 
@@ -43,6 +54,34 @@ const TimmerDisplay = ({
     fullScreen ? document.exitFullscreen() : timmerDisplay.requestFullscreen();
     setFullScreen(!fullScreen);
   };
+
+  //time management in tab
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden && isActive) {
+        setTimeout(() => {
+          document.title = formatTime;
+        }, 100);
+      } else {
+        document.title = originalTitle;
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    // Update the title dynamically every second if it is hidden
+    let titleInterval;
+    if (isActive) {
+      titleInterval = setInterval(() => {
+        if (document.hidden) {
+          document.title = formatTime;
+        }
+      }, 500);
+    }
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      if (titleInterval) clearInterval(titleInterval);
+    };
+  });
 
   return (
     <>
@@ -65,10 +104,7 @@ const TimmerDisplay = ({
             ${notificationOn ? "notification--on" : "notification--off"}`}
             onClick={handleClick}
           ></span>
-          <p style={{ color: timmerColor }}>{`${String(minutes).padStart(
-            2,
-            "0"
-          )}:${String(seconds).padStart(2, "0")}`}</p>
+          <p style={{ color: timmerColor }}>{formatTime}</p>
           <span
             className={`timmer-display__full-screen ${
               fullScreen
