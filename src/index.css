@@ -23,12 +23,20 @@ body {
   overflow-x: hidden;
   font-family: "Roboto", sans-serif;
   color: var(--text-color);
-  background-color: #6d030e;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    /* Overlay negro con 30% de opacidad */
-      url("https://res.cloudinary.com/dnvpep1sn/image/upload/v1728678886/xbobzd5oofmqytfzs7mo.png"); /* Imagen de fondo */
-  background-size: cover;
-  background-position: inherit;
+  --s: 150px; /* control the size */
+  --c1: var(--timer-color);
+  --c2: var(--title);
+
+  --l: var(--c1) 99%, #b2000000 101%;
+  --p: var(--c2) 99%, #0000 101%;
+  --r: closest-corner at;
+  background: radial-gradient(var(--r)-25% 25%, var(--p)),
+    radial-gradient(var(--r) 25% -25%, var(--p)),
+    radial-gradient(var(--r) 125% 75%, var(--p)),
+    radial-gradient(var(--r) 75% 125%, var(--p)),
+    radial-gradient(var(--r) 75% 75%, var(--l)),
+    radial-gradient(var(--r) 25% 25%, var(--l)) var(--c2);
+  background-size: var(--s) var(--s);
 }
 
 /* Personalización del scroll */
